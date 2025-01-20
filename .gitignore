@@ -1,0 +1,7 @@
+.env
+blockscout/blockscout-db-data
+blockscout/stats-db-data
+blockscout/redis-data
+blockscout/logs
+blockscout/tmp
+blockscout/postgres-data
