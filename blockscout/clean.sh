@@ -1,0 +1,1 @@
+rm -Rf ./blockscout-db-data ./stats-db-data ./redis-data ./logs ./tmp ./postgres-data
