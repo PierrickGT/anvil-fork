@@ -1,23 +1,22 @@
-version: "3.8"
 services:
   anvil:
     container_name: anvil
-    image: ghcr.io/foundry-rs/foundry:nightly-a038646cde347afaae67cc955c1e99c22dc23875
+    image: ghcr.io/foundry-rs/foundry:latest
     ports:
       - ${ANVIL_RPC_PORT:-8545}:8545
-    command: 
+    command:
       - anvil -m "${MNEMONIC}" --host "0.0.0.0" --fork-url ${RPC_FORK_URL} --fork-block-number ${RPC_FORK_BLOCK}
     networks:
       - proxy-network
 
   otterscan:
-   container_name: otterscan
-   image: otterscan/otterscan:latest
-   restart: "always"
-   ports:
-     - ${OTTERSCAN_PORT:-8000}:80
-   environment:
-     ERIGON_URL: http://127.0.0.1:8545/
+    container_name: otterscan
+    image: otterscan/otterscan:latest
+    restart: "always"
+    ports:
+      - ${OTTERSCAN_PORT:-8000}:80
+    environment:
+      ERIGON_URL: http://127.0.0.1:8545/
 
 networks:
   proxy-network:
